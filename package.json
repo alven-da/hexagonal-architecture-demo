@@ -1,0 +1,26 @@
+{
+  "name": "hexagonal-architecture-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "dist": "tsc --build tsconfig.json",
+    "get-video-details": "node ./build/interface/cmd"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "typescript": "^4.0.5",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/uuid": "^8.3.0",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.0.0"
+  }
+}
