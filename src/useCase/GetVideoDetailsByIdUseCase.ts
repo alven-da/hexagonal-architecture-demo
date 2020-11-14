@@ -1,22 +1,23 @@
-import UseCase from '../../../core/UseCase';
+import UseCase from '../core/UseCase';
 
 import VideoRepository from '../repository/VideoRepository';
-import VideoMySqlRepository from '../repository/VideoMySqlRepository';
-import VideoNoSqlRepository from '../repository/VideoNoSqlRepository';
+import VideoBrightcoveRepoImpl from '../repository/VideoBrightcoveRepoImpl';
+import VideoJWPlayerRepoImpl from '../repository/VideoJWPlayerRepoImpl';
 
 interface VideoDetailsDTO {
   id: string;
   title: string;
   description: string;
   contentType: string;
+  reference: string;
 }
 
-export default class RetrieveVideoDetailsByIdUseCase implements UseCase {
+export default class GetVideoDetailsByIdUseCase implements UseCase {
   private _videoRepo: VideoRepository;
 
   constructor() {
     // this._videoRepo = new VideoMySqlRepository();
-    this._videoRepo = new VideoNoSqlRepository();
+    this._videoRepo = new VideoJWPlayerRepoImpl();
   }
 
   async execute(requestObj: any): Promise<VideoDetailsDTO> {
@@ -37,7 +38,8 @@ export default class RetrieveVideoDetailsByIdUseCase implements UseCase {
       id: videoEntity.entityId,
       title: videoEntity.title,
       description: videoEntity.description,
-      contentType: videoEntity.contentType
+      contentType: videoEntity.contentType,
+      reference: videoEntity.reference
     };
   }
 }

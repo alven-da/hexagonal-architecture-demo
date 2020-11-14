@@ -1,18 +1,18 @@
 import Video from '../domain/Video';
 import VideoRepository from './VideoRepository';
 
-import VideoNoSql from '../dataSources/VideoNoSql';
+import JWPlayerDS from '../dataSources/JWPlayer';
 
-export default class VideoNoSqlRepository implements VideoRepository {
+export default class VideoJWPlayerRepoImpl implements VideoRepository {
     async getVideoDetailsById(id: string): Promise<Video> {
-      const videoRaw = await VideoNoSql.retrieveVideoDetails(id);
+      const videoRaw = await JWPlayerDS.retrieveVideoDetails(id);
 
       return this.toEntity(videoRaw);
     }
 
     async updateVideoDetails(video: Video): Promise<boolean> {
       const rawData = this.toPersistence(video);
-      return VideoNoSql.postVideoDetails(rawData);
+      return JWPlayerDS.postVideoDetails(rawData);
     }
 
     // Mappers
@@ -21,7 +21,8 @@ export default class VideoNoSqlRepository implements VideoRepository {
       return Video.create({
         title: rawData.name,
         contentType: rawData.kind,
-        description: rawData.summary
+        description: rawData.summary,
+        reference: 'NoSQL'
       }, rawData.id);
     }
 

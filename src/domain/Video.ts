@@ -1,9 +1,10 @@
-import Entity from '../../../core/Entity';
+import Entity from '../core/Entity';
 
 interface IVideoProps {
   title: string;
   description: string;
-  contentType: string;  
+  contentType: string;
+  reference: string;
 }
 
 export default class Video extends Entity<IVideoProps> {
@@ -33,5 +34,9 @@ export default class Video extends Entity<IVideoProps> {
 
   get contentType(): string {
     return this.props.contentType;
+  }
+
+  get reference(): string {
+    return this.props.reference;
   }
 }
