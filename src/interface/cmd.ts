@@ -1,21 +1,18 @@
-// Script that reuses the same use case from http endpoint
-
 import fs from 'fs';
 import path from 'path';
-import GetVideoDetailsByIdUseCase from '../useCase/GetVideoDetailsByIdUseCase';
 
 async function run() {
+  // get command line arguments
   const cmdArgs = process.argv.slice(2);
-  const videoId = cmdArgs[0] || 'default';
 
-  console.info(`videoId is ${videoId}`);
+  // get the videoId from the arguments
+  const id = cmdArgs[0] || '12345';
 
-  const videoDetailsUseCase = new GetVideoDetailsByIdUseCase();
-  const result = await videoDetailsUseCase.execute({ id: videoId });
+  console.info(`videoId is ${id}`);
 
-  const fileDir = path.join(__dirname, '..', '..', 'videoDetails.txt');
-    
-  fs.writeFileSync(fileDir, JSON.stringify(result));
+  /** Save the result into a text file */
+  // const fileDir = path.join(__dirname, '..', '..', 'videoDetails.txt');
+  // fs.writeFileSync(fileDir, JSON.stringify(result));
 }
 
 run();

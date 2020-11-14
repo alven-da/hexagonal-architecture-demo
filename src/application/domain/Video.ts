@@ -1,4 +1,4 @@
-import Entity from '../core/Entity';
+import Entity from '../../abstract/Entity';
 
 interface IVideoProps {
   title: string;
