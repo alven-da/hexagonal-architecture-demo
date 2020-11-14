@@ -1,18 +1,18 @@
 import Video from '../domain/Video';
 import VideoRepository from './VideoRepository';
 
-import VideoMySql from '../dataSources/videoMySql';
+import BrightcoveDS from '../dataSources/BrightCove';
 
-export default class VideoMySqlRepository implements VideoRepository {
+export default class VideoBrightcoveRepoImpl implements VideoRepository {
     async getVideoDetailsById(id: string): Promise<Video> {
-      const videoRaw = await VideoMySql.getVideoDetailsById(id);
+      const videoRaw = await BrightcoveDS.getVideoDetailsById(id);
 
       return this.toEntity(videoRaw);
     }
 
     async updateVideoDetails(video: Video): Promise<boolean> {
       const rawData = this.toPersistence(video);
-      return VideoMySql.updateVideoDetails(rawData);
+      return BrightcoveDS.updateVideoDetails(rawData);
     }
 
     // Mappers
@@ -21,7 +21,8 @@ export default class VideoMySqlRepository implements VideoRepository {
       return Video.create({
         title: rawData.title,
         contentType: rawData.type,
-        description: rawData.synopsis
+        description: rawData.synopsis,
+        reference: 'MySQL'
       }, rawData.id);
     }
 

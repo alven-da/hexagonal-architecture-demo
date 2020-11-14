@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import RetrieveVideoDetailsByIdUseCase from '../modules/video/useCase/RetrieveVideoDetailsByIdUseCase';
+import GetVideoDetailsByIdUseCase from '../useCase/GetVideoDetailsByIdUseCase';
 
 async function run() {
   const cmdArgs = process.argv.slice(2);
@@ -10,7 +10,7 @@ async function run() {
 
   console.info(`videoId is ${videoId}`);
 
-  const videoDetailsUseCase = new RetrieveVideoDetailsByIdUseCase();
+  const videoDetailsUseCase = new GetVideoDetailsByIdUseCase();
   const result = await videoDetailsUseCase.execute({ id: videoId });
 
   const fileDir = path.join(__dirname, '..', '..', 'videoDetails.txt');
