@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "dist": "tsc --build tsconfig.json",
-    "get-video-details": "node ./build/interface/cmd"
+    "get-video-details": "ts-node ./src/interface/commandLine/cmd.ts"
   },
   "keywords": [],
   "author": "",

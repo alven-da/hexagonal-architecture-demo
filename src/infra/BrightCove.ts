@@ -3,7 +3,7 @@
 // This will serve as your MySQL datasource
 
 export default class BrightcoveDS {
-  static async getVideoDetailsById(id: string): Promise<any> {
+  static getVideoDetailsById(id: string): any {
     return {
       id: '12345',
       title: 'The Avengers: Endgame',
@@ -13,7 +13,7 @@ export default class BrightcoveDS {
     };
   }
 
-  static async updateVideoDetails(rawData: any): Promise<boolean> {
+  static updateVideoDetails(rawData: any): boolean {
     return true;
   }
 }

@@ -1,8 +1,11 @@
 import UseCase from "../../abstract/UseCase";
+import { IVideoRepository } from "../repository/IVideoRepository";
+import { VideoBrightcoveRepository } from "../repository/VideoBrightcoveRepository";
+import { VideoJWRepository } from "../repository/VideoJWRepository";
 
 // Data Transfer Object - what it should accept from User Interface (UI)
 type DetailsRequestDTO = {
-  id: string;
+  videoId: string;
 };
 
 // Data Transfer Object - what it should return back to User Interface (UI)
@@ -17,9 +20,13 @@ type DetailsResponseDTO = {
 // implements the interface UseCase
 // execute() is the entry point per use case
 export class VideoDetailsUseCase implements UseCase<DetailsRequestDTO, DetailsResponseDTO> {
-  constructor() {}
+  // implement repository instance here
 
-  async execute(args: DetailsRequestDTO): Promise<DetailsResponseDTO> {
+  constructor() {
+    // instantiate repository here
+  }
+
+  execute(args: DetailsRequestDTO): DetailsResponseDTO {
     throw new Error('Method not implemented.');
   }
 }

@@ -3,7 +3,7 @@
 // This will serve as your NoSQL datasource
 
 export default class JWPlayerDS {
-  static async retrieveVideoDetails(id: string): Promise<any> {
+  static retrieveVideoDetails(id: string): any {
     return {
       id: '12345',
       name: 'The Avengers: Endgame',
@@ -13,7 +13,7 @@ export default class JWPlayerDS {
     };
   }
 
-  static async postVideoDetails(rawData: any): Promise<boolean> {
+  static postVideoDetails(rawData: any): boolean {
     return true;
   }
 }
