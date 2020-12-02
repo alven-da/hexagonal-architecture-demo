@@ -1,6 +1,6 @@
 import Entity from '../../abstract/Entity';
 
-interface IVideoProps {
+type IVideoProps = {
   title: string;
   description: string;
   contentType: string;
@@ -8,19 +8,11 @@ interface IVideoProps {
 }
 
 export default class Video extends Entity<IVideoProps> {
-  private constructor(data: IVideoProps, id: string) {
+  constructor(data: IVideoProps, id?: string) {
     super(data, id);
   }
 
-  static create(props: IVideoProps, id: string) {
-    const entity = new Video(props, id);
-
-    // there might be some validations you need to add here
-
-    return entity;
-  }
-
-  get entityId(): string {
+  get contentId(): string {
     return this.id;
   }
 

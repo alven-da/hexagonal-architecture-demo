@@ -7,7 +7,7 @@ async function run() {
   const cmdArgs = process.argv.slice(2);
 
   // get the videoId from the arguments
-  const id = cmdArgs[0] || '12345';
+  const id = cmdArgs[0] || '';
 
   console.info(`videoId is ${id}`);
 

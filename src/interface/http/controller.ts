@@ -9,6 +9,7 @@ router.get('/api/v1/video/:id', (req, res) => {
 
   // extracted the id from the request path params
   const { id } = params;
+
   res.send(null);
 });
 
