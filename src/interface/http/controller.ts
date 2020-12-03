@@ -10,7 +10,11 @@ router.get('/api/v1/video/:id', (req, res) => {
   // extracted the id from the request path params
   const { id } = params;
 
-  res.send(null);
+  const useCase = new VideoDetailsUseCase();
+
+  const result = useCase.execute({ videoId: id });
+
+  res.send(result);
 });
 
 export { router };

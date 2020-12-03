@@ -11,9 +11,12 @@ async function run() {
 
   console.info(`videoId is ${id}`);
 
+  const useCase = new VideoDetailsUseCase();
+  const result = useCase.execute({ videoId: id });
+
   /** Save the result into a text file */
-  // const fileDir = path.join(__dirname, '..', '..', 'videoDetails.txt');
-  // fs.writeFileSync(fileDir, JSON.stringify(result));
+  const fileDir = path.join(__dirname, '..', '..', 'videoDetails.txt');
+  fs.writeFileSync(fileDir, JSON.stringify(result));
 }
 
 run();
