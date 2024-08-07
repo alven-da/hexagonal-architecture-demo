@@ -1,5 +1,5 @@
 import express from 'express';
-import { VideoDetailsUseCase } from '../../application/useCase/VideoDetailsUseCase';
+import { VideoDetailsUseCase } from '../../application/useCase/GetStudentInfo';
 
 const router = express.Router();
 

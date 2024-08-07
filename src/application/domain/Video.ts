@@ -5,7 +5,7 @@ type IVideoProps = {
   description: string;
   contentType: string;
   reference: string;
-}
+};
 
 export default class Video extends Entity<IVideoProps> {
   constructor(data: IVideoProps, id?: string) {

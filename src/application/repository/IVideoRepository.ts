@@ -1,5 +1,5 @@
-import Video from "../domain/Video";
+import Video from '../domain/Video';
 
 export interface IVideoRepository {
-    getDetailsById(videoId: string): Video;
+  getDetailsById(videoId: string): Video;
 }

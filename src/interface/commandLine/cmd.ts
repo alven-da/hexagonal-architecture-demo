@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { VideoDetailsUseCase } from '../../application/useCase/VideoDetailsUseCase';
+import { VideoDetailsUseCase } from '../../application/useCase/GetStudentInfo';
 
 async function run() {
   // get command line arguments

@@ -1,6 +1,6 @@
-import { IVideoRepository } from "../repository/IVideoRepository";
-import { VideoBrightcoveRepository } from "../repository/VideoBrightcoveRepo";
-import { VideoJWRepository } from "../repository/VideoJWRepository";
+import { IVideoRepository } from '../repository/IVideoRepository';
+import { VideoBrightcoveRepository } from '../repository/VideoBrightcoveRepo';
+import { VideoJWRepository } from '../repository/VideoJWRepository';
 
 // Data Transfer Object - what it should accept from User Interface (UI)
 type DetailsRequestDTO = {
@@ -21,7 +21,6 @@ type DetailsResponseDTO = {
 export class VideoDetailsUseCase {
   // implement repository instance here
   private _videoRepo: IVideoRepository;
-
 
   constructor() {
     // instantiate repository here
