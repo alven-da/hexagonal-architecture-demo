@@ -7,8 +7,8 @@
     "build": "tsc --p tsconfig.json",
     "codegen": "graphql-codegen --config codegen.yml",
     "lint": "eslint \"src/**/*.ts\" --fix",
-    "server:rest:dev": "nodemon --exec 'ts-node -r tsconfig-paths/register ./src/interface/rest/index.ts -e ts,js'",
-    "server:graphql:dev": "nodemon --exec 'ts-node -r tsconfig-paths/register ./src/interface/graphql/server.ts -e ts,graphql'"
+    "rest:dev": "nodemon --exec 'ts-node -r tsconfig-paths/register ./src/interface/rest/index.ts -e ts,js'",
+    "graphql:dev": "nodemon --exec 'ts-node -r tsconfig-paths/register ./src/interface/graphql/server.ts -e ts,graphql'"
   },
   "keywords": [],
   "author": "Alven Alinan (alvenalinan@gmail.com)",
