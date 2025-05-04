@@ -1,6 +1,8 @@
+import { Service } from 'typedi';
+
 import { Student } from '#/application/domain/Student';
 import { IStudentRepository } from '#/application/repository/IStudentRepository';
-import { Service } from 'typedi';
+import { MongoDBBaseConnector } from '#/application/repository/api/MongoDBBaseConnector';
 
 @Service({ transient: true })
 export default class StudentMongoDBRepository extends IStudentRepository {
@@ -9,11 +11,18 @@ export default class StudentMongoDBRepository extends IStudentRepository {
   }
 
   async getDetailsById(studentId: string): Promise<Student> {
+    const instance = await MongoDBBaseConnector.getInstance();
+    const db = instance.getDB();
+
+    const studentEnt = await db
+      .collection('students')
+      .findOne({ id: studentId });
+
     return {
-      id: studentId,
-      address: 'North Point, Eastern District, Hong Kong Island',
-      firstName: 'Alven',
-      lastName: 'Alinan'
+      id: studentEnt.id,
+      address: studentEnt.address,
+      firstName: studentEnt.firstName,
+      lastName: studentEnt.lastName
     } as Student;
   }
 }

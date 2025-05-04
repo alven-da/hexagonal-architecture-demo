@@ -1,5 +1,7 @@
-## Hexagonal Architecture
+# Hexagonal Architecture Demo
 
-This codebase demonstrates a simple Hexagonal Architecture.
+This project demonstrates Hexagonal Architecture in a Typescript language.
 
-It uses plain Express and Apollo libraries in creating REST and GraphQL interfaces.
+In this example, you'll see how a service can have a REST API and a GraphQL endpoint at the same time and how a MySQL database can be replaced by a MongoDB source with minimum changes.
+
+Dependency injection was made possible using `typedi` library.

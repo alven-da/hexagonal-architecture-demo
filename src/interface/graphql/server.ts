@@ -12,13 +12,11 @@ import typeDefs from '#/interface/graphql/schemas/schema';
 
 const PORT = process.env.PORT || 3000;
 
-let server = null;
-
 async function startServer() {
   const app = express();
   const httpServer = http.createServer(app);
 
-  server = new ApolloServer({
+  const server = new ApolloServer({
     typeDefs,
     resolvers: [StudentResolver],
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]

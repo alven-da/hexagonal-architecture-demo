@@ -14,15 +14,8 @@ export class StudentService {
   constructor(private studentRepo: IStudentRepository) {}
 
   async getById(studentId: string): Promise<StudentDto> {
-    const {
-      id,
-      firstName,
-      address,
-      lastName,
-      guardian,
-      primaryEducation,
-      secondaryEducation
-    } = await this.studentRepo.getDetailsById(studentId);
+    const { id, firstName, address, lastName } =
+      await this.studentRepo.getDetailsById(studentId);
 
     return {
       id,
